@@ -185,85 +185,7 @@
                 </div>
                 <div id="chart1"></div>
                 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-                <script>
-                  var options = {
-                    series: [{
-                      name: 'Frequency Deffrence',
-                      type: 'area',
-                      data: [0.25, 0.75, 1, 0.5, 1.2, 1.9, 2, 0.75, 1.75, 0.5, 1],
-                    }, {
-                      name: 'forecasting Deffrence',
-                      type: 'line',
-                      data: [0.75, 0.5, 1.25, 0.75, 1, 1.75, 1.5, 0.5, 1.25, 1, 1.75, 0.5, 2, 0.5, 0.75],
-                    }],
-                    markers: {
-                      size: 5
-                    },
-                    colors: ['#a020f0', '#ff0000'], 
-                    chart: {
-                      height: 350,
-                      type: 'line',
-                      animations: {
-                        enabled: true,
-                        easing: 'easeinout',
-                        speed: 800,
-                        animateGradually: {
-                          enabled: true,
-                          delay: 150
 
-                        },
-                        dynamicAnimation: {
-                          enabled: true,
-                          speed: 350
-                        }
-                      },
-
-                      toolbar: {
-                        show: true,
-                        tools: {
-                          reset: false,
-                          pan: false,
-
-                        }
-
-                      }
-                    },
-                    stroke: {
-                      curve: 'smooth'
-                    },
-                    fill: {
-                      type: 'solid',
-                      opacity: [0.35, 1],
-                    },
-                    labels: ['1s', '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', '11s', '12s', '13s', '14s', '15s', '16s'],
-                    markers: {
-                      size: 0
-                    },
-                    yaxis: [
-                      {
-                        title: {
-                          text: 'Frequency (hz)',
-                        },
-                      },
-
-                    ],
-                    tooltip: {
-                      shared: true,
-                      intersect: false,
-                      y: {
-                        formatter: function (y) {
-                          if (typeof y !== "undefined") {
-                            return y.toFixed(0.5) + " points";
-                          }
-                          return y;
-                        }
-                      }
-                    }
-                  };
-
-                  var chart = new ApexCharts(document.querySelector("#chart1"), options);
-                  chart.render();
-                </script>
               </div>
             </div>
           </div>
@@ -390,8 +312,9 @@
                 <table>
                   <tr>
                     <td>
-                      <tgs-player src="../assets/images/logos/down.tgs" background="transparent" speed="1"style="width: 25px;height: 25px;" loop="" autoplay="">
-                    
+                      <tgs-player src="../assets/images/logos/down.tgs" background="transparent" speed="1"
+                        style="width: 25px;height: 25px;" loop="" autoplay="">
+
                     </td>
                     <td>
                       <h5 class="card-title fw-semibold">Supply And Demand</h5>
@@ -400,47 +323,48 @@
               </div>
               <div id="chart2"></div>
               <script>
-              
-              var options = {
-                series: [{
-                name: 'Power Supply',
-                data: [490, 480, 460, 500]
-              }, {
-                name: 'Power Demand',
-                data: [480, 460, 450, 490]
-              }],
-                chart: {
-                height: 350,
-                type: 'area'
-              },
-              colors: ['#00ff00', '#ff0000'], // green and red colors
-              dataLabels: {
-                enabled: false
-              },
-              stroke: {
-                curve: 'smooth'
-              },
-              toolbar: {
-                show: true,
-                tools: {
-                  reset: false,
-                  pan: false,
 
-                        }},
-              xaxis: {
-                type: 'datetime',
-                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z"]
-              },
-              tooltip: {
-                x: {
-                  format: 'dd/MM/yy HH:mm'
-                },
-              },
-              };
-      
-              var chart = new ApexCharts(document.querySelector("#chart2"), options);
-              chart.render();
-            </script>           
+                var options = {
+                  series: [{
+                    name: 'Power Supply',
+                    data: [490, 480, 460, 500]
+                  }, {
+                    name: 'Power Demand',
+                    data: [480, 460, 450, 490]
+                  }],
+                  chart: {
+                    height: 350,
+                    type: 'area'
+                  },
+                  colors: ['#00ff00', '#ff0000'], // green and red colors
+                  dataLabels: {
+                    enabled: false
+                  },
+                  stroke: {
+                    curve: 'smooth'
+                  },
+                  toolbar: {
+                    show: true,
+                    tools: {
+                      reset: false,
+                      pan: false,
+
+                    }
+                  },
+                  xaxis: {
+                    type: 'datetime',
+                    categories: ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00"]
+                  },
+                  tooltip: {
+                    x: {
+                      format: 'dd/MM/yy HH:mm'
+                    },
+                  },
+                };
+
+                var chart = new ApexCharts(document.querySelector("#chart2"), options);
+                chart.render();
+              </script>
             </div>
           </div>
         </div>
@@ -450,7 +374,8 @@
               <table>
                 <tr>
                   <td>
-                    <tgs-player src="../assets/images/logos/bat.tgs" background="transparent" speed="1"style="width: 25px;height: 25px;" loop="" autoplay="">
+                    <tgs-player src="../assets/images/logos/bat.tgs" background="transparent" speed="1"
+                      style="width: 25px;height: 25px;" loop="" autoplay="">
                   </td>
                   <td>
                     <h5 class="card-title fw-semibold">Stand By Battery Schedule</h5>
@@ -560,6 +485,137 @@
       <script src="../assets/js/app.min.js"></script>
       <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
       <script src="../assets/js/dashboard.js"></script>
+      <script>
+        var options = {
+          series: [{
+            name: 'Demand',
+            type: 'area',
+            data: [0.25, 0.75, 1, 0.5, 1.2, 1.9, 2],
+          }, {
+            name: 'Demand forecast ',
+            type: 'line',
+            data: [0.75, 0.5, 1.25, 0.75, 1, 1.75, 1.5],
+          }],
+          markers: {
+            size: 5
+          },
+          colors: ['#a020f0', '#ff0000'],
+          chart: {
+            height: 350,
+            type: 'line',
+            animations: {
+              enabled: true,
+              easing: 'easeinout',
+              speed: 800,
+              animateGradually: {
+                enabled: true,
+                delay: 150
+
+              },
+              dynamicAnimation: {
+                enabled: true,
+                speed: 350
+              }
+            },
+
+            toolbar: {
+              show: true,
+              tools: {
+                reset: false,
+                pan: false,
+
+              }
+
+            }
+          },
+          stroke: {
+            curve: 'smooth'
+          },
+          fill: {
+            type: 'solid',
+            opacity: [0.35, 1],
+          },
+          xaxis: {
+            type: 'datetime',
+            categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+          },
+          //labels: ['1s', '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', '11s', '12s', '13s', '14s', '15s', '16s'],
+          markers: {
+            size: 0
+          },
+          yaxis: [
+            {
+              title: {
+                text: 'Frequency (hz)',
+              },
+            },
+
+          ],
+          tooltip: {
+            shared: true,
+            intersect: false,
+            y: {
+              formatter: function (y) {
+                if (typeof y !== "undefined") {
+                  return y.toFixed(0.5) + " points";
+                }
+                return y;
+              }
+            }
+          }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart1"), options);
+        chart.render();
+
+        function updateSeriesData(newDataPoints) {
+          chart.updateSeries([{
+            data: newDataPoints
+          }]);
+        }
+        function updateCategoryData(newDateTimes) {
+          chart.updateOptions({
+            xaxis: {
+              categories: newDateTimes
+            }
+          });
+        }
+
+
+        //
+
+
+        setInterval(() => {
+          var demand_series=[];
+          var demand_catagaries=[];
+          var forecast_series=[];
+          var forecast_catagaries=[];
+
+          $.getJSON("./json-db/data_demand_series.json", function (res) {
+            demand_series=res;
+          });
+          $.getJSON("./json-db/data_demand_Category.json", function (res) {
+            demand_catagaries=res;
+          });
+          $.getJSON("./json-db/data_forecast_series.json", function (res) {
+            forecast_series=res;
+          });
+          $.getJSON("./json-db/data_forecast_Category.json", function (res) {
+            forecast_catagaries=res
+          });
+
+        }, 1000);
+
+
+
+
+
+
+
+
+
+      </script>
+
 </body>
 
 </html>
