@@ -569,9 +569,7 @@
         chart.render();
 
         function updateSeriesData(newDataPoints) {
-          chart.updateSeries([{
-            data: newDataPoints
-          }]);
+          chart.updateSeries(newDataPoints);
         }
         function updateCategoryData(newDateTimes) {
           chart.updateOptions({
@@ -580,31 +578,50 @@
             }
           });
         }
+        setInterval(() =>{
+          var demand_series = [];
+          var demand_categories = [];
+          var forecast_series = [];
+          var forecast_categories = [];
 
+          // Fetch all JSON data using $.when().then()
+          $.when(
+            $.getJSON("./json-db/data_demand_series.json"),
+            $.getJSON("./json-db/data_demand_Category.json"),
+            $.getJSON("./json-db/data_forecast_series.json"),
+            $.getJSON("./json-db/data_forecast_Category.json")
+          ).then(function (demandSeriesRes, demandCategoriesRes, forecastSeriesRes, forecastCategoriesRes) {
+            // Update variables with the fetched data
+            demand_series = demandSeriesRes[0];
+            demand_categories = demandCategoriesRes[0];
+            forecast_series = forecastSeriesRes[0];
+            forecast_categories = forecastCategoriesRes[0];
+
+            // Now you can use demand_series, demand_categories, forecast_series, and forecast_categories as they have been populated
+            //console.log(demand_series, demand_categories, forecast_series, forecast_categories);
+            const newSeriesData = [{
+              name: 'Demand',
+              type: 'area',
+              data: demand_series, // New data points for the Demand series
+            }, {
+              name: 'Demand forecast',
+              type: 'line',
+              data: forecast_series, // New data points for the Demand forecast series
+            }];
+            updateCategoryData(forecast_categories);
+            console.log(forecast_categories);
+            updateSeriesData(newSeriesData);
+            console.log(newSeriesData);
+
+
+          });
+
+        }, 1000);
 
         //
 
 
-        setInterval(() => {
-          var demand_series=[];
-          var demand_catagaries=[];
-          var forecast_series=[];
-          var forecast_catagaries=[];
 
-          $.getJSON("./json-db/data_demand_series.json", function (res) {
-            demand_series=res;
-          });
-          $.getJSON("./json-db/data_demand_Category.json", function (res) {
-            demand_catagaries=res;
-          });
-          $.getJSON("./json-db/data_forecast_series.json", function (res) {
-            forecast_series=res;
-          });
-          $.getJSON("./json-db/data_forecast_Category.json", function (res) {
-            forecast_catagaries=res
-          });
-
-        }, 1000);
 
 
 
