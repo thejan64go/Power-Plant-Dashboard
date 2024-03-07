@@ -5,7 +5,7 @@ import time  # Import the time module for sleeping
 import apscheduler 
 import random
 
-client = MongoClient('mongodb+srv://user_fyp:YxQNKAF8qYGSBHIT@cluster0.a5jdgea.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+client = MongoClient('')
 BASE_PATH="Power-Plant-Dashboard/json-db"
 db = client['FYP']  
 
