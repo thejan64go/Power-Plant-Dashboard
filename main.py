@@ -38,7 +38,7 @@ for i in range(0, 50):
     process_and_save_data(demand_forecast_col, "data_forecast", i )
     process_and_save_data(demand_col, "data_demand", i )
 
-    time.sleep(0.8)  
+    time.sleep(2)  
 
   
 
